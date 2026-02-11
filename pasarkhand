@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>کانال پسرخوانده در روبیکا</title>
+  <style>
+    @import url('https://cdn.fontcdn.ir/css/lalezar.css');
+    * {
+      font-family: 'Lalezar', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #800000;
+      direction: rtl;
+      text-align: center;
+      color: #fff;
+    }
+    .icon-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 80px 0 40px;
+    }
+    .icon-box {
+      width: 160px;
+      height: 110px;
+      background-color: #FFD700;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      color: #333;
+      cursor: pointer;
+    }
+    .bottom-image img {
+      max-width: 95%;
+      width: 800px;
+      border-radius: 12px;
+      margin-top: 20px;
+      cursor: default;
+    }
+    .channel-info {
+      font-size: 28px;
+      margin-top: 20px;
+      color: #FFD700;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #FFD700;
+      padding: 10px 20px;
+    }
+  </style>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body onload="goToHomePage()">
+  <div class="icon-container">
+    <div class="icon-box" onclick="goToHomePage()">خانه</div>
+    <div class="icon-box" onclick="goToGamePage()">بازی</div>
+    <div class="icon-box" onclick="goToLeaguePage()">لیگ</div>
+  </div>
+
+  <div id="main-content"></div>
+
+  <script>
+    function goToHomePage() {
+      document.getElementById('main-content').innerHTML = `
+        <div class="bottom-image">
+          <img
+            src="https://cdn.imgurl.ir/uploads/j918150_.png"
+            alt="تصویر بخش خانه"
+          >
+          <div class="channel-info">
+            بیا یه سری بزن به کانال پسرخوانده در روبیکا یه کانال باحال
+          </div>
+          <a
+            href="https://rubika.ir/psarkhandh_com12"
+            target="_blank"
+            style="
+              display: inline-block;
+              margin-top: 10px;
+              background-color: #FFD700;
+              color: #800000;
+              font-size: 28px;
+              padding: 12px 20px;
+              border-radius: 12px;
+              text-decoration: none;
+            "
+          >
+            @psarkhandh_com12
+          </a>
+          <img
+            src="https://cdn.imgurl.ir/uploads/u42157_.png"
+            alt="عکس اول"
+            style="
+              display: block;
+              margin: 20px auto 0;
+              max-width: 95%;
+              width: 800px;
+              border-radius: 12px;
+            "
+          >
+          <img
+            src="https://cdn.imgurl.ir/uploads/k2415_.png"
+            alt="عکس دوم"
+            style="
+              display: block;
+              margin: 100px auto 0;
+              max-width: 95%;
+              width: 800px;
+              border-radius: 12px;
+            "
+          >
+        </div>
+        <div class="footer">
+          تمام حقوق این سایت متعلق به کانال پسرخوانده است و اینکه اطلاعات ذخیره نشن
+        </div>
+      `;
+    }
+
+    function goToLeaguePage() {
+      document.getElementById('main-content').innerHTML = `
+        <h1 style="margin-top:100px; color:#FFD700; font-size:40px;">
+          وقتی بازی تموم شد اطلاعات ثبت می‌شه
+        </h1>
+        <div class="footer">
+          تمام حقوق این سایت متعلق به کانال پسرخوانده است و اینکه اطلاعات ذخیره نشن
+        </div>
+      `;
+    }
+
+    function goToGamePage() {
+      let boxClickCount = 0;
+      let boxUnlocked = false;
+      const main = document.getElementById('main-content');
+      main.innerHTML = '';
+
+      const container = document.createElement('div');
+      container.style = 'text-align:center; margin-top:60px;';
+
+      const title = document.createElement('h2');
+      title.innerText = 'نامت رو وارد کن، بعد کلیک کن روی صندوق 🎁';
+      title.style = 'font-size:40px; color:#FFD700; margin-bottom:30px;';
+      container.appendChild(title);
+
+      const boxImg = document.createElement('img');
+      boxImg.src = 'https://cdn.imgurl.ir/uploads/w026910_InShot__.png';
+      boxImg.alt = 'صندوق کلیکی';
+      boxImg.style = 'width:900px; border-radius:14px; box-shadow:0 0 20px rgba(255,215,0,0.5); cursor:pointer; opacity:0.6;';
+      boxImg.onclick = () => {
+        if (!boxUnlocked) {
+          alert('لطفاً اول اطلاعاتت رو ثبت کن 😅');
+          return;
+        }
+        boxClickCount++;
+        clickText.innerText = 'تعداد کلیک روی صندوق: ' + boxClickCount;
+      };
+      container.appendChild(boxImg);
+
+      const clickText = document.createElement('div');
+      clickText.className = 'click-count';
+      clickText.innerText = 'تعداد کلیک روی صندوق: 0';
+      container.appendChild(clickText);
+
+      const nameLabel = document.createElement('label');
+      nameLabel.innerText = 'نام:';
+      nameLabel.style = 'font-size:40px; color:#FFD700; display:block; margin-top:40px;';
+      container.appendChild(nameLabel);
+
+      const nameInput = document.createElement('input');
+      nameInput.type = 'text';
+      nameInput.placeholder = 'نام خود را وارد کن';
+      nameInput.style = `
+        font-size:34px;
+        padding:14px;
+        width:350px;
+        border-radius:10px;
+        border: 2px solid #FFD700;
+        margin-top:10px;
+      `;
+      container.appendChild(nameInput);
+
+      const idLabel = document.createElement('label');
+      idLabel.innerText = 'آیدی روبیکا:';
+      idLabel.style = 'font-size:40px; color:#FFD700; display:block; margin-top:40px;';
+      container.appendChild(idLabel);
+
+      const idInput = document.createElement('input');
+      idInput.type = 'text';
+      idInput.placeholder = 'آیدی روبیکا رو وارد کن';
+      idInput.style = `
+        font-size:34px;
+        padding:14px;
+        width:350px;
+        border-radius:10px;
+        border: 2px solid #FFD700;
+        margin-top:10px;
+      `;
+      container.appendChild(idInput);
+
+      const submitButton = document.createElement('button');
+      submitButton.innerText = 'ثبت اطلاعات';
+      submitButton.style = `
+        font-size:36px;
+        margin-top:50px;
+        padding:14px 28px;
+        background-color: #FFD700;
+        color: #800000;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+      `;
+      submitButton.onclick = () => {
+        const nameVal = nameInput.value.trim();
+        const idVal = idInput.value.trim();
+        if (!nameVal || !idVal) {
+          alert('نام و آیدی روبیکا رو کامل وارد کن داداش 😅');
+          return;
+        }
+        boxUnlocked = true;
+        boxImg.style.opacity = '1';
+        alert(`نام: ${nameVal}\nآیدی: ${idVal}`);
+        if (!document.getElementById('camera-btn')) {
+          const cameraBtn = document.createElement('img');
+          cameraBtn.id = 'camera-btn';
+          cameraBtn.src = 'https://cdn.imgurl.ir/uploads/r832863_.png';
+          cameraBtn.alt = 'دوربین';
+          cameraBtn.style = 'margin-top:30px; width:100px; cursor:pointer;';
+          cameraBtn.onclick = () => {
+            html2canvas(document.body).then(canvas => {
+              const link = document.createElement('a');
+              link.href = canvas.toDataURL('image/png');
+              link.download = 'screenshot.png';
+              link.click();
+            });
+          };
+          container.appendChild(cameraBtn);
+        }
+      };
+      container.appendChild(submitButton);
+
+      // اضافه کردن footer در بخش بازی
+      const footer = document.createElement('div');
+      footer.className = 'footer';
+      footer.innerText = 'تمام حقوق این سایت متعلق به کانال پسرخوانده است و اینکه اطلاعات ذخیره نشن';
+      container.appendChild(footer);
+
+      main.appendChild(container);
+    }
+  </script>
+</body>
+</html>
